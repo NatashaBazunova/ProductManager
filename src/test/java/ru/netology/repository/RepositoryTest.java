@@ -63,6 +63,7 @@ class RepositoryTest {
         Product actual = repo.findById(3);
         assertEquals(expected, actual);
     }
+
     @Test
     public void shouldRemoveByIdIfNull() {
         repo.save(first);
