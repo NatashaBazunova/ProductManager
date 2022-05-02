@@ -52,5 +52,29 @@ class RepositoryTest {
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldFindById() {
+        repo.save(first);
+        repo.save(second);
+        repo.save(third);
+        repo.save(fourth);
+        repo.findById(3);
+        Product expected = third;
+        Product actual = repo.findById(3);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldRemoveByIdIfNull() {
+        repo.save(first);
+        repo.save(second);
+        repo.save(third);
+        repo.save(fourth);
+       assertThrows(NotFoundException.class, () -> {
+           repo.removeById(10);
+       });
+    }
+
+
+
 
 }
